@@ -228,7 +228,7 @@ module DeviseTokenAuth
       elsif auth_origin_url # default to same-window implementation, which forwards back to auth_origin_url
 
         # build and redirect to destination url
-        redirect_to DeviseTokenAuth::Url.generate(auth_origin_url, data.merge(blank: true))
+        redirect_to DeviseTokenAuth::Url.generate(auth_origin_url, data.merge(blank: true)), allow_other_host: true
       else
 
         # there SHOULD always be an auth_origin_url, but if someone does something silly
